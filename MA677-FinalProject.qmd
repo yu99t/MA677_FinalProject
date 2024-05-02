@@ -1,0 +1,35 @@
+---
+title: "MA677 Final Project - Empirical Bayes"
+author: "Yuta Tsukumo"
+format: html
+editor: visual
+---
+
+```{r}
+# Load necessary library
+library(tibble)
+
+# Generate samples from a Poisson distribution
+lambda <- 2
+claims <- rpois(n = 10000, lambda = lambda)
+
+# Estimate the expected number of claims for the next year using Robbins' formula
+next_year_claims_estimate <- numeric(11)
+for (i in 0:10) {
+  next_year_claims_estimate[i + 1] <- (i + 1) * sum(claims == i + 1) / sum(claims == i)
+}
+
+# Create a table showing the results including this year's claims
+result_table <- tibble(
+  Claims = 0:10,
+  This_Year_Claims = as.numeric(table(claims))[1:11],
+  Next_Year_Claims_Estimate = next_year_claims_estimate
+)
+print(result_table)
+
+```
+
+```{r}
+
+```
+
