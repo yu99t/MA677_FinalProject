@@ -1,4 +1,4 @@
-# MA677 FinalProject - Empirical Baye　
+# MA677 Final Project - Empirical Baye　
 
 The Empirical Bayes Method represents a groundbreaking statistical approach pioneered in the 1950s by Robbins, Good and Toulmin, Stein, among others. Its significant breakthrough lies in its ability to estimate parameters solely based on observed data, without relying on assumed probability distributions or prior knowledge, which are key features of traditional Bayesian methods.
 
