@@ -28,8 +28,22 @@ result_table <- tibble(
 print(result_table)
 
 ```
-
+Next, we try to culculate with much smaller sample size.
 ```{r}
+claims_small <- rpois(n = 100, lambda = lambda)
 
+# Estimate the expected number of claims for the next year using Robbins' formula
+next_year_claims_estimate <- numeric(11)
+for (i in 0:10) {
+  next_year_claims_estimate[i + 1] <- (i + 1) * sum(claims_small == i + 1) / sum(claims_small == i)
+}
+
+# Create a table showing the results including this year's claims
+result_table_small <- tibble(
+  Claims = 0:10,
+  This_Year_Claims = as.numeric(table(claims_small))[1:11],
+  Next_Year_Claims_Estimate = next_year_claims_estimate
+)
+print(result_table_small)
 ```
 
